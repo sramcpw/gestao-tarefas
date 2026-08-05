@@ -16,18 +16,7 @@ gestao-empresarial/
 
 ## Novidades desta versão
 
-- **Mais tarefas de demonstração**: novo comando `npm run seed:more`
-  adiciona **mais 30 tarefas** (10 diárias, 10 semanais, 10 mensais — títulos
-  diferentes do primeiro lote, cobrindo de novo todas as prioridades,
-  pessoal/equipe e recorrente/não recorrente). Diferente do `npm run seed`,
-  este comando **não exige que a tabela esteja vazia** — funciona mesmo que
-  você já tenha tarefas cadastradas, então é a forma mais simples de engordar
-  a base de testes. Rodar `seed:more` mais de uma vez não duplica o mesmo
-  lote (ele detecta que já rodou e avisa no terminal).
-
-## Novidades da versão anterior
-
-- **Massa de dados de demonstração maior**: o `npm run seed` cadastra
+- **Massa de dados de demonstração maior**: o `npm run seed` agora cadastra
   **30 tarefas** (10 diárias, 10 semanais e 10 mensais), cobrindo as quatro
   prioridades (Baixa, Média, Alta, Urgente), tarefas pessoais e de equipe
   (com responsáveis alternando entre os três usuários de teste), e uma
@@ -41,10 +30,9 @@ gestao-empresarial/
   > rodado `npm run seed` antes (com o conjunto de exemplo antigo, de 5
   > tarefas), apague `backend/data.db` (e os arquivos `data.db-shm` /
   > `data.db-wal`, se existirem) antes de rodar `npm run seed` novamente para
-  > receber as 30 tarefas novas — ou simplesmente use `npm run seed:more`
-  > acima, que funciona sem precisar apagar nada.
+  > receber as 30 tarefas novas.
 
-## Novidades de versões anteriores
+## Novidades da versão anterior
 
 - **Prioridade em cada tarefa**: Baixa, Média, Alta e **Urgente**. Aparece como
   etiqueta colorida no cartão e existe um filtro por prioridade (com
@@ -196,8 +184,7 @@ dados que já estavam lá.
 # Backend
 cd backend
 npm install       # instala dependências
-npm run seed      # cria usuários e 30 tarefas de exemplo (rodar 1x, tabela precisa estar vazia)
-npm run seed:more # adiciona mais 30 tarefas, mesmo com a tabela ja preenchida
+npm run seed      # cria usuários e tarefas de exemplo (rodar 1x)
 npm run dev       # sobe a API com reinício automático
 npm start         # sobe a API normalmente
 
