@@ -16,11 +16,21 @@ gestao-empresarial/
 
 ## Novidades desta versão
 
-- **Chat interno**: um "Chat da equipe" (canal geral, visível a todos) e
-  conversas diretas 1-a-1 com qualquer colega, com contador de mensagens não
-  lidas na barra lateral e um selo no menu "Chat" no topo. As mensagens
-  atualizam automaticamente a cada poucos segundos (não é preciso recarregar
-  a página).
+- **Massa de dados de demonstração maior**: o `npm run seed` agora cadastra
+  **30 tarefas** (10 diárias, 10 semanais e 10 mensais), cobrindo as quatro
+  prioridades (Baixa, Média, Alta, Urgente), tarefas pessoais e de equipe
+  (com responsáveis alternando entre os três usuários de teste), e uma
+  mistura de tarefas recorrentes e não recorrentes — usando exatamente a
+  mesma lógica de recorrência da tela, então algumas geram várias ocorrências
+  no banco (ex.: uma tarefa diária recorrente por 2 semanas vira ~14 linhas).
+  O terminal mostra quantas definições foram processadas e quantas linhas
+  isso gerou no total.
+
+  > O seed só roda quando a tabela de tarefas está vazia. Se você já tinha
+  > rodado `npm run seed` antes (com o conjunto de exemplo antigo, de 5
+  > tarefas), apague `backend/data.db` (e os arquivos `data.db-shm` /
+  > `data.db-wal`, se existirem) antes de rodar `npm run seed` novamente para
+  > receber as 30 tarefas novas.
 
 ## Novidades da versão anterior
 
@@ -77,7 +87,8 @@ Abra o arquivo `.env` gerado e, se quiser, troque o valor de `JWT_SECRET` por
 qualquer texto aleatório (isso é o que assina os tokens de login).
 
 Popule o banco com um usuário admin e dois funcionários de teste, além de
-algumas tarefas de exemplo:
+30 tarefas de exemplo (diárias, semanais e mensais, com todas as
+prioridades, pessoais e de equipe, recorrentes e não recorrentes):
 
 ```bash
 npm run seed
